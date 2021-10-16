@@ -1,0 +1,20 @@
+name: actions-template-sync
+
+on:
+  schedule:
+  - cron:  '30 5,17 * * *'
+  workflow_dispatch:
+
+jobs:
+  repo-sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: actions-template-sync
+        uses: AndreasAugustin/actions-template-sync@v0.1.6-draft
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_repo_path: oimp9gr/lab_3
+          upstream_branch: master
