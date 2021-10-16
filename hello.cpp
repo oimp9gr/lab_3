@@ -2,8 +2,9 @@
 
 #include "catch.hpp"
 
+#include "solution.h"
+
 #include <vector>
-#include <utility>
 
 using namespace std;
 
@@ -23,21 +24,6 @@ void FillMatrixIota(vector<vector<int>>& matrix) {
     }
 }
 
-bool AreMatricesIdentical(const vector<vector<int>> &lhs, const vector<vector<int>> &rhs) {
-    if (lhs.size() != rhs.size()) {
-        return false;
-    }
-    for (size_t i = 0; i < lhs.size(); ++i) {
-        if (lhs[i].size() != rhs[i].size()) return false;
-        for (size_t j = 0; j < lhs[i].size(); ++j) {
-            if (lhs[i][j] != rhs[i][j]) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
 TEST_CASE("1: Empty matrices are identical", "[task:1]")
 {
     vector<vector<int>> lhs = {};
@@ -52,7 +38,7 @@ TEST_CASE("1: Empty matrices are identical", "[task:1]")
     }
 }
 
-TEST_CASE("1: Equality of square matrices is computed", "[task:1]")
+TEST_CASE("1: Equality of square matrices", "[task:1]")
 {
     vector<vector<int>> lhs = {};
     vector<vector<int>> rhs = {};
@@ -102,7 +88,7 @@ TEST_CASE("1: Equality of square matrices is computed", "[task:1]")
     }
 }
 
-TEST_CASE("1: Equality of non square matrices is computed", "[task:1]") {
+TEST_CASE("1: Equality of non square matrices", "[task:1]") {
     vector<vector<int>> lhs = {};
     vector<vector<int>> rhs = {};
 
@@ -139,7 +125,7 @@ TEST_CASE("1: Equality of non square matrices is computed", "[task:1]") {
     }
 }
 
-TEST_CASE("1: Equality of matrices with different sizes is computed", "[task:1]") {
+TEST_CASE("1: Equality of matrices with different sizes", "[task:1]") {
     vector<vector<int>> lhs;
     vector<vector<int>> rhs;
 
@@ -147,11 +133,15 @@ TEST_CASE("1: Equality of matrices with different sizes is computed", "[task:1]"
         lhs = {{1, 1}, {2, 2}};
         rhs = {{1}};
         REQUIRE(AreMatricesIdentical(lhs, rhs) == false);
+
+        lhs = {{1}};
+        rhs = {{1, 1}, {2, 2}};
+        REQUIRE(AreMatricesIdentical(lhs, rhs) == false);
     }
 
     SECTION("Non square matrices") {
-        lhs = {{1, 1}, {2, 2}};
-        rhs = {{1, 2}};
+        lhs = {{1, 1}};
+        rhs = {{1, 1}, {2, 2}};
         REQUIRE(AreMatricesIdentical(lhs, rhs) == false);
     }
 }
@@ -160,4 +150,17 @@ TEST_CASE("1: Const arguments", "[task:1]") {
     const vector<vector<int>> lhs = {{1}};
     const vector<vector<int>> rhs = {{1}};
     REQUIRE(AreMatricesIdentical(lhs, rhs) == true);
+}
+
+TEST_CASE("1: Stress test", "[task:1]") {
+    size_t size = 10;
+    vector<vector<int>>lhs(size, vector<int>(size));
+    vector<vector<int>>rhs(size, vector<int>(size));
+    FillMatrixIota(lhs);
+    FillMatrixIota(rhs);
+    uint32_t counter = 0;
+    for (size_t i = 0; i < 500000; ++i) {
+        counter += static_cast<uint32_t>(AreMatricesIdentical(lhs, rhs));
+    }
+    REQUIRE(counter == 500000);
 }

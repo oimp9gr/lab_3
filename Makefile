@@ -5,10 +5,10 @@ rm_and_build:
 	rm 'a.out' ; g++ -std=c++17 hello.cpp
 
 all: rm_and_build
-	 ./a.out
+	 ./a.out -d yes
 
 test: build
-	./a.out
+	./a.out -d yes
 
 clean:
 	rm a.out
