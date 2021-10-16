@@ -1,7 +1,4 @@
-// 020-TestCase-2.cpp
-// Source: https://github.com/catchorg/Catch2/blob/master/examples/020-TestCase-2.cpp
-
-#define CATCH_CONFIG_MAIN  // This tells Catch to provide a main() - only do this in one cpp file
+#define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
 
@@ -55,7 +52,7 @@ TEST_CASE("1: Empty matrices are identical", "[task:1]")
     }
 }
 
-TEST_CASE("2: Equality of square matrices is computed", "[task:1]")
+TEST_CASE("1: Equality of square matrices is computed", "[task:1]")
 {
     vector<vector<int>> lhs = {};
     vector<vector<int>> rhs = {};
@@ -105,7 +102,7 @@ TEST_CASE("2: Equality of square matrices is computed", "[task:1]")
     }
 }
 
-TEST_CASE("3: Equality of non square matrices is computed", "[task:1]") {
+TEST_CASE("1: Equality of non square matrices is computed", "[task:1]") {
     vector<vector<int>> lhs = {};
     vector<vector<int>> rhs = {};
 
@@ -142,7 +139,7 @@ TEST_CASE("3: Equality of non square matrices is computed", "[task:1]") {
     }
 }
 
-TEST_CASE("4: Equality of matrices with different sizes is computed", "[task:1]") {
+TEST_CASE("1: Equality of matrices with different sizes is computed", "[task:1]") {
     vector<vector<int>> lhs;
     vector<vector<int>> rhs;
 
@@ -159,7 +156,7 @@ TEST_CASE("4: Equality of matrices with different sizes is computed", "[task:1]"
     }
 }
 
-TEST_CASE("5: Const arguments", "[task:1]") {
+TEST_CASE("1: Const arguments", "[task:1]") {
     const vector<vector<int>> lhs = {{1}};
     const vector<vector<int>> rhs = {{1}};
     REQUIRE(AreMatricesIdentical(lhs, rhs) == true);
