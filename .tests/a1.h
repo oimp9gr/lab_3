@@ -1,26 +1,31 @@
-#define CATCH_CONFIG_MAIN
-
 #include "catch.hpp"
-
-#include "solution.h"
+#include "util.h"
 
 #include <vector>
 
+#pragma once
+
 using namespace std;
 
-void ResizeMatrix(vector<vector<int>>& matrix, size_t row_new_size, size_t column_new_size = -1) {
-    if (column_new_size == static_cast<size_t>(-1)) {
-        column_new_size = row_new_size;
+TEST_CASE("1: Example", "[task:1]") {
+    vector<vector<int>> lhs = {};
+    vector<vector<int>> rhs = {};
+    SECTION("Example 1") {
+        lhs = {{1, 2}, {1, 2}};
+        rhs = {{1, 2}, {1, 2}};
+        REQUIRE(AreMatricesIdentical(lhs, rhs) == true);
     }
-    matrix.resize(row_new_size);
-    for (auto &row: matrix) {
-        row.resize(column_new_size);
-    }
-}
 
-void FillMatrixIota(vector<vector<int>>& matrix) {
-    for (auto &row: matrix) {
-        iota(row.begin(), row.end(), 0);
+    SECTION("Example 2") {
+        lhs = {{1, 2, 3}};
+        rhs = {{3, 2, 1}};
+        REQUIRE(AreMatricesIdentical(lhs, rhs) == false);
+    }
+
+    SECTION("Example 3") {
+        lhs = {};
+        rhs = {{}};
+        REQUIRE(AreMatricesIdentical(lhs, rhs) == false);
     }
 }
 

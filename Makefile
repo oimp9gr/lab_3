@@ -1,11 +1,11 @@
 build:
-	g++ -std=c++17 hello.cpp
+	g++ -std=c++17 run_tests.cpp
 
-a.out: hello.cpp
+a.out: run_tests.cpp
 	build
 
 test:
-	./a.out "$(name)"
+	./a.out -d yes "$(name)"
 
 clear:
 	rm a.out
