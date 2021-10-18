@@ -17,3 +17,11 @@ void FillMatrixIota(vector<vector<int>> &matrix, int start = 0) {
         iota(row.begin(), row.end(), start);
     }
 }
+
+string GenerateStringFromAlphabet(const vector<char> &alphabet, size_t size) {
+    string result;
+    for (size_t i = 0; i < size; ++i) {
+        result += alphabet[rand() % alphabet.size()];
+    }
+    return result;
+}

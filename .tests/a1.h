@@ -1,9 +1,10 @@
+#pragma once
+
 #include "catch.hpp"
 #include "util.h"
+#include "../solutions/a1.h"
 
 #include <vector>
-
-#pragma once
 
 using namespace std;
 

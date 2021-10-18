@@ -2,6 +2,7 @@
 
 #include "catch.hpp"
 #include "util.h"
+#include "../solutions/a2.h"
 
 #include <vector>
 
