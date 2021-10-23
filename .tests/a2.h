@@ -6,7 +6,7 @@
 
 #include <vector>
 
-TEST_CASE("2: Example", "[task:2]") {
+TEST_CASE("a2: Example", "[task:a2]") {
     vector<vector<int>> matr = {};
     SECTION("Example 1") {
         matr = {{1, 2}, {3, 4}};
@@ -24,7 +24,7 @@ TEST_CASE("2: Example", "[task:2]") {
     }
 }
 
-TEST_CASE("2: Empty matrix", "[task:2]") {
+TEST_CASE("a2: Empty matrix", "[task:a2]") {
     vector<vector<int>> matr = {};
     SECTION("Zero rows") {
         matr = {};
@@ -37,7 +37,7 @@ TEST_CASE("2: Empty matrix", "[task:2]") {
     }
 }
 
-TEST_CASE("2: Square matrix", "[task:2]") {
+TEST_CASE("a2: Square matrix", "[task:a2]") {
     vector<vector<int>> matr = {};
     SECTION("1 row 1 column") {
         matr = {{1}};
@@ -57,7 +57,7 @@ TEST_CASE("2: Square matrix", "[task:2]") {
     }
 }
 
-TEST_CASE("2: Non square matrix", "[task:2]") {
+TEST_CASE("a2: Non square matrix", "[task:a2]") {
     vector<vector<int>> matr = {};
     SECTION("1 row 2 columns") {
         matr = {{1, 2}};
@@ -78,7 +78,7 @@ TEST_CASE("2: Non square matrix", "[task:2]") {
     }
 }
 
-TEST_CASE("2: Big numbers", "[task:2]") {
+TEST_CASE("a2: Big numbers", "[task:a2]") {
     vector<vector<int>> matr = {};
     int64_t size = 100;
     ResizeMatrix(matr, size);
@@ -86,7 +86,7 @@ TEST_CASE("2: Big numbers", "[task:2]") {
     REQUIRE(TheGreatestColumnSum(matr) == (INT32_MAX - 1) * (size));
 }
 
-TEST_CASE("2: Stress test", "[task:2]") {
+TEST_CASE("a2: Stress test", "[task:a2]") {
     size_t size = 10;
     vector<vector<int>>matr = {};
     ResizeMatrix(matr, size);
@@ -98,7 +98,7 @@ TEST_CASE("2: Stress test", "[task:2]") {
     REQUIRE(counter == 700000);
 }
 
-TEST_CASE("2: Const argument", "[task:2]") {
+TEST_CASE("a2: Const argument", "[task:a2]") {
     const vector<vector<int>> matr = {{1}};
     REQUIRE(TheGreatestColumnSum(matr) == 1);
 }

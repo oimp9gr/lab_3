@@ -1,9 +1,18 @@
 #pragma once
 
-#include <string>
+struct Point {
+    int x;
+    int y;
+};
 
-using namespace std;
+struct Rectangle {
+    int width;
+    int height;
+};
 
-bool IsPrefix(const string& word, const string& prefix) {
-    return word.length() >= prefix.length() && word.substr(0, prefix.length()) == prefix;
+bool isInRectangle(Point &point, Rectangle &rectangle) {
+    if (point.x >= 0 && point.y >= 0 && point.x <= rectangle.width && point.y <= rectangle.height) {
+        return true;
+    }
+    return false;
 }

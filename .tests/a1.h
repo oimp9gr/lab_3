@@ -8,7 +8,7 @@
 
 using namespace std;
 
-TEST_CASE("1: Example", "[task:1]") {
+TEST_CASE("a1: Example", "[task:a1]") {
     vector<vector<int>> lhs = {};
     vector<vector<int>> rhs = {};
     SECTION("Example 1") {
@@ -30,7 +30,7 @@ TEST_CASE("1: Example", "[task:1]") {
     }
 }
 
-TEST_CASE("1: Empty matrices are identical", "[task:1]")
+TEST_CASE("a1: Empty matrices are identical", "[task:a1]")
 {
     vector<vector<int>> lhs = {};
     vector<vector<int>> rhs = {};
@@ -44,7 +44,7 @@ TEST_CASE("1: Empty matrices are identical", "[task:1]")
     }
 }
 
-TEST_CASE("1: Equality of square matrices", "[task:1]")
+TEST_CASE("a1: Equality of square matrices", "[task:a1]")
 {
     vector<vector<int>> lhs = {};
     vector<vector<int>> rhs = {};
@@ -94,7 +94,7 @@ TEST_CASE("1: Equality of square matrices", "[task:1]")
     }
 }
 
-TEST_CASE("1: Equality of non square matrices", "[task:1]") {
+TEST_CASE("a1: Equality of non square matrices", "[task:a1]") {
     vector<vector<int>> lhs = {};
     vector<vector<int>> rhs = {};
 
@@ -131,7 +131,7 @@ TEST_CASE("1: Equality of non square matrices", "[task:1]") {
     }
 }
 
-TEST_CASE("1: Equality of matrices with different sizes", "[task:1]") {
+TEST_CASE("a1: Equality of matrices with different sizes", "[task:a1]") {
     vector<vector<int>> lhs;
     vector<vector<int>> rhs;
 
@@ -152,13 +152,13 @@ TEST_CASE("1: Equality of matrices with different sizes", "[task:1]") {
     }
 }
 
-TEST_CASE("1: Const arguments", "[task:1]") {
+TEST_CASE("a1: Const arguments", "[task:a1]") {
     const vector<vector<int>> lhs = {{1}};
     const vector<vector<int>> rhs = {{1}};
     REQUIRE(AreMatricesIdentical(lhs, rhs) == true);
 }
 
-TEST_CASE("1: Stress test", "[task:1]") {
+TEST_CASE("a1: Stress test", "[task:a1]") {
     size_t size = 10;
     vector<vector<int>>lhs(size, vector<int>(size));
     vector<vector<int>>rhs(size, vector<int>(size));

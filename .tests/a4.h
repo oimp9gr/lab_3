@@ -1,66 +1,127 @@
 #pragma once
 
-#include "util.h"
 #include "catch.hpp"
+#include "util.h"
 #include "../solutions/a4.h"
 
-#include <vector>
-#include <set>
+#include <string>
 
-using namespace std;
 
-size_t AmountOfDifferentNumbers(const vector<vector<int>> &matr) {
-    set<int> numbers;
-    for (size_t i = 0; i < matr.size(); i++) {
-        for (size_t j = 0; j < matr.size(); j++) {
-            numbers.insert(matr[i][j]);
-        }
-    }
-    return numbers.size();
-}
-
-bool IsSymmetrical(const vector<vector<int>> &matr) {
-    for (size_t i = 0; i < matr.size(); i++) {
-        for (size_t j = i + 1; j < matr.size(); j++) {
-            if (matr[i][j] != matr[j][i]) {
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
-TEST_CASE("4: Example", "[task:4]") {
+TEST_CASE("a4: Example", "[task:a4]") {
+    string word, prefix;
     SECTION("Example 1") {
-        size_t size = 2;
-        vector<vector<int>> result = CreateSymmetrical(size);
-        REQUIRE(IsSymmetrical(result));
-        REQUIRE(AmountOfDifferentNumbers(result) == ((size + 1) * size) / 2);
-    }SECTION("Example 2") {
-        size_t size = 3;
-        vector<vector<int>> result = CreateSymmetrical(size);
-        REQUIRE(IsSymmetrical(result));
-        REQUIRE(AmountOfDifferentNumbers(result) == ((size + 1) * size) / 2);
-    }SECTION("Example 3") {
-        size_t size = 0;
-        vector<vector<int>> result = CreateSymmetrical(size);
-        REQUIRE(IsSymmetrical(result));
-        REQUIRE(AmountOfDifferentNumbers(result) == ((size + 1) * size) / 2);
+        word = "automobile";
+        prefix = "auto";
+        REQUIRE(IsPrefix(word, prefix) == true);
+    }
+
+    SECTION("Example 2") {
+        word = "automobile";
+        prefix = "Auto";
+        REQUIRE(IsPrefix(word, prefix) == false);
+    }
+
+    SECTION("Example 3") {
+        word = "Promiscuous girl";
+        prefix = "Prom";
+        REQUIRE(IsPrefix(word, prefix) == true);
     }
 }
 
-TEST_CASE("4: All sizes up to 10", "[task:4]") {
-    for (size_t i = 0; i < 10; ++i) {
-        size_t size = i;
-        vector<vector<int>> result = CreateSymmetrical(size);
-        REQUIRE(IsSymmetrical(result));
-        REQUIRE(AmountOfDifferentNumbers(result) == ((size + 1) * size) / 2);
+TEST_CASE("a4: Word's length less or equal to a prefix's length", "[task:a4]") {
+    string word, prefix;
+    SECTION("Less") {
+        word = "abc";
+        prefix = "abcd";
+        REQUIRE(IsPrefix(word, prefix) == false);
+    }
+
+    SECTION("Less") {
+        word = "abcd";
+        prefix = "abcd";
+        REQUIRE(IsPrefix(word, prefix) == true);
+
+        word = "abcd";
+        prefix = "abce";
+        REQUIRE(IsPrefix(word, prefix) == false);
     }
 }
 
-TEST_CASE("4: Big matrix", "[task:4]") {
-    size_t size = rand() % 1000;
-    vector<vector<int>> result = CreateSymmetrical(size);
-    REQUIRE(IsSymmetrical(result));
-    REQUIRE(AmountOfDifferentNumbers(result) == ((size + 1) * size) / 2);
+TEST_CASE("a4: Empty string", "[task:a4]") {
+    string word, prefix;
+    SECTION("Empty word") {
+        word = "";
+        prefix = "auto";
+        REQUIRE(IsPrefix(word, prefix) == false);
+    }
+
+    SECTION("Empty prefix") {
+        word = "automobile";
+        prefix = "";
+        REQUIRE(IsPrefix(word, prefix) == true);
+    }
+
+    SECTION("Both word and prefix are empty") {
+        word = "";
+        prefix = "";
+        REQUIRE(IsPrefix(word, prefix) == true);
+    }
+}
+
+TEST_CASE("a4: With spaces", "[task:a4]") {
+    string word, prefix;
+    SECTION("A prefix") {
+        word = "word1   word2    word3";
+        prefix = "word1   word2";
+        REQUIRE(IsPrefix(word, prefix) == true);
+    }
+
+    SECTION("Not a prefix") {
+        word = "word1   word2    word3";
+        prefix = "word1    word2";
+        REQUIRE(IsPrefix(word, prefix) == false);
+    }
+
+    SECTION("Only spaces") {
+        word = "\t";
+        prefix = "    ";
+        REQUIRE(IsPrefix(word, prefix) == false);
+        word = "\n";
+        prefix = "    ";
+        REQUIRE(IsPrefix(word, prefix) == false);
+        word = "       ";
+        prefix = "    ";
+        REQUIRE(IsPrefix(word, prefix) == true);
+    }
+}
+
+TEST_CASE("a4: Randomly generated string", "[task:a4]") {
+    vector<char>alphabet = [] {
+        vector<char>result;
+        for (size_t i = 0; i < 26; ++i) {
+            result.push_back('a' + i);
+        }
+        result.push_back(' ');
+        result.push_back('\t');
+        result.push_back('\n');
+        result.push_back('!');
+        result.push_back(',');
+        result.push_back('.');
+        return result;
+    }();
+    string word = GenerateStringFromAlphabet(alphabet, 1000);
+    string prefix;
+
+    SECTION("A prefix") {
+        prefix = word.substr(0, word.length());
+        REQUIRE(IsPrefix(word, prefix) == true);
+
+        prefix = word.substr(0, word.length() / 2);
+        REQUIRE(IsPrefix(word, prefix) == true);
+    }
+
+    SECTION("Not a prefix") {
+        prefix = word.substr(0, word.length() / 2) + "?";
+        REQUIRE(IsPrefix(word, prefix) == false);
+    }
 }
