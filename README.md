@@ -21,9 +21,9 @@
 и false, если нет.
 
 ```c++
-    AreMatricesIdentical( {{1, 2}, {1, 2}}, {{1, 2}, {1, 2}} ) -> true
-    AreMatricesIdentical( {{1, 2, 3}}, {{3, 2, 1}} ) -> false
-    AreMatricesIdentical( {}, {{}} ) -> false
+    AreMatricesIdentical( {{1, 2}, {1, 2}}, {{1, 2}, {1, 2}} ); // true
+    AreMatricesIdentical( {{1, 2, 3}}, {{3, 2, 1}} ); // false
+    AreMatricesIdentical( {}, {{}} ); // false
 ```
 </li>
 
@@ -34,9 +34,9 @@
 [comment]: <> (_0 &le; N &le; 10<sup>3</sup>_)
 
 ```c++
-    TheGreatestColumnSum( {{1, 2}, {3, 4}} ) -> 6
-    TheGreatestColumnSum( {{1, 2, 3}, {3, 2, 1}} ) -> 4
-    TheGreatestColumnSum( {} ) -> 0 
+    TheGreatestColumnSum( {{1, 2}, {3, 4}} ); // 6
+    TheGreatestColumnSum( {{1, 2, 3}, {3, 2, 1}} ); // 4
+    TheGreatestColumnSum( {} ); // 0 
 ```
 </li>
 
@@ -48,9 +48,9 @@
 Считается, что прямоугольник имеет вершины в точках <i>(0, 0)</i> и <i>(Rectangle.width, Rectangle.height)</i>.
 
 ```c++
-    isInRectangle(Point{3, 3}, Rectangle{3, 3}) -> true
-    isInRectangle(Point{1, 2}, Rectangle{3, 4}) -> true
-    isInRectangle(Point{5, 4}, Rectangle{3, 3}) -> false
+    isInRectangle(Point{3, 3}, Rectangle{3, 3}); // true
+    isInRectangle(Point{1, 2}, Rectangle{3, 4}); // true
+    isInRectangle(Point{5, 4}, Rectangle{3, 3}); // false
 ```
 
 </li>
@@ -64,9 +64,9 @@
     подсказка: используйте функцию substr()
 
 ```c++
-    IsPrefix( "automobile", "auto" ) -> true
-    IsPrefix( "automobile", "Auto" ) -> false
-    IsPrefix( "Every 60 seconds in Africa, a minute passes.", "Every 60" ) -> true
+    IsPrefix( "automobile", "auto" ); // true
+    IsPrefix( "automobile", "Auto" ); // false
+    IsPrefix( "Every 60 seconds in Africa, a minute passes.", "Every 60" ); // true
 ```
 </li>
 
@@ -77,9 +77,9 @@
 изменять входной массив.
 
 ```c++
-    RotateMatrix( {{1, 2}, {3, 4}} -> {{3, 1},{4, 2}}
-    RotateMatrix( {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}} ) -> {{7, 4, 1}, {8, 5, 2}, {9, 6, 3}}
-    RotateMatrix( {{1}} ) -> {{1}}
+    RotateMatrix( {{1, 2}, {3, 4}}; // {{3, 1},{4, 2}}
+    RotateMatrix( {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}} ); // {{7, 4, 1}, {8, 5, 2}, {9, 6, 3}}
+    RotateMatrix( {{1}} ); // {{1}}
 ```
 
 </li>
@@ -138,12 +138,12 @@ Product описываются следующим образом:
 элементов должны различаться.
 
 ```c++
-    CreateSymmetricMatrix(2) -> {{1, 2},
+    CreateSymmetricMatrix(2); // {{1, 2},
                                  {2, 3}}
-    CreateSymmetricMatrix(3) -> {{1, 2, 3},
+    CreateSymmetricMatrix(3); // {{1, 2, 3},
                                  {2, 4, 5},
                                  {3, 5, 6}}
-    CreateSymmetricMatrix(0) -> {}
+    CreateSymmetricMatrix(0); // {}
 ```
 </li>
 
@@ -158,9 +158,9 @@ Product описываются следующим образом:
 от 1 до 9 только один раз.
 
 ```c++
-    IsCorrectSudokuSquare({{1, 3, 2}, {9, 7, 8}, {4, 5, 6}}) -> true
-    IsCorrectSudokuSquare({{1, 1, 3}, {6, 5, 4}, {8, 7, 9}}) -> false
-    IsCorrectSudokuSquare({{0, 1, 2}, {6, 4, 5}, {9, 8, 7}}) -> false
+    IsCorrectSudokuSquare({{1, 3, 2}, {9, 7, 8}, {4, 5, 6}}); // true
+    IsCorrectSudokuSquare({{1, 1, 3}, {6, 5, 4}, {8, 7, 9}}); // false
+    IsCorrectSudokuSquare({{0, 1, 2}, {6, 4, 5}, {9, 8, 7}}); // false
 ```
 </li>
 
@@ -171,9 +171,9 @@ Product описываются следующим образом:
 Верните вектор заполненный в любом порядке всеми счастливыми числами матрицы.  
 
 ```c++
-    LuckyNumbers( {{3, 7, 8}, {9, 11, 13}, {15, 16, 17}} ) -> {15}
-    LuckyNumbers( {{1, 10, 4, 2}, {9, 3, 8, 7}, {15, 16, 17, 12}} ) -> {12}
-    LuckyNumbers( {{3, 6}, {7, 1}, {5, 2}, {4, 8}} ) -> {}
+    LuckyNumbers( {{3, 7, 8}, {9, 11, 13}, {15, 16, 17}} ); // {15}
+    LuckyNumbers( {{1, 10, 4, 2}, {9, 3, 8, 7}, {15, 16, 17, 12}} ); // {12}
+    LuckyNumbers( {{3, 6}, {7, 1}, {5, 2}, {4, 8}} ); // {}
 ```
 </li>
 
@@ -201,9 +201,9 @@ Product описываются следующим образом:
     подмассива в результирующий массив.
 
 ```c++
-    MergeSortedArrays({1, 6, 9}, {-3, 4, 12}) -> {-3, 1, 4, 6, 9, 12}
-    MergeSortedArrays({-5, 4}, {0}) -> {-5, 0, 4}
-    MergeSortedArrays({}, {}) -> {}
+    MergeSortedArrays({1, 6, 9}, {-3, 4, 12}); // {-3, 1, 4, 6, 9, 12}
+    MergeSortedArrays({-5, 4}, {0}); // {-5, 0, 4}
+    MergeSortedArrays({}, {}); // {}
 ```
 </li>
 
@@ -223,17 +223,17 @@ Product описываются следующим образом:
                         {'X', 'O', '.'},
                         {'.', 'X', 'O'},
                         {'.', '.', 'X'}
-                    }) -> "X"
+                    }); // "X"
     TicTacToeResult({
                         {'X', 'O', 'X'},
                         {'O', 'X', '.'},
                         {'X', '.', 'O'}
-                    }) -> "X"  
+                    }); // "X"  
     TicTacToeResult({
                         {'X', 'X', 'O'},
                         {'O', 'O', 'X'},
                         {'X', 'X', 'O'}
-                    }) -> "Tie"
+                    }); // "Tie"
 ```
 </li>
 
@@ -252,9 +252,9 @@ Product описываются следующим образом:
 Решите это задание с использованием рекурсии.
 
 ```c++
-    MultiplicativePersistence(2718) -> 2
-    MultiplicativePersistence(5) -> 0
-    MultiplicativePersistence(277777788888899) -> 11
+    MultiplicativePersistence(2718); // 2
+    MultiplicativePersistence(5); // 0
+    MultiplicativePersistence(277777788888899); // 11
 ```
 
 </li>
@@ -276,8 +276,8 @@ Product описываются следующим образом:
 изменять входной массив.
 
 ```c++
-    MergeSort({1, 9, 0, -5}) -> {-5, 0, 1, 9}
-    MergeSort({}) -> {}
+    MergeSort({1, 9, 0, -5}); // {-5, 0, 1, 9}
+    MergeSort({}); // {}
 ```
 </li>
 
@@ -299,11 +299,11 @@ Product описываются следующим образом:
     Использовать встроенные функции языка запрещено.
 
 ```c++
-GetStats( {7, 2, 3, 4, 15, -4, -4, 10} ) -> Stats{size = 8,
-                                                  range = 19,
-                                                  mean = 4.125,
-                                                  median = 3.5,
-                                                  mode = -4};
+GetStats( {7, 2, 3, 4, 15, -4, -4, 10} ); // Stats{size = 8,
+                                          //        range = 19,
+                                          //        mean = 4.125,
+                                          //        median = 3.5,
+                                          //        mode = -4};
 ```
 </li>
 
