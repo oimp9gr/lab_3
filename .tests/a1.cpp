@@ -5,6 +5,7 @@
 #include "../solutions/a1.h"
 
 #include <vector>
+#include <string>
 
 
 using namespace std;
