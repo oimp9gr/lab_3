@@ -1,10 +1,11 @@
-#pragma once
+#define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
 #include "util.h"
 #include "../solutions/a2.h"
 
 #include <vector>
+
 
 TEST_CASE("a2: Example", "[task:a2]") {
     vector<vector<int>> matr = {};

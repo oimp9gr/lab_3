@@ -1,18 +1,19 @@
-#pragma once
+#define CATCH_CONFIG_MAIN
 
 #include "util.h"
 #include "catch.hpp"
-#include "../solutions/a8.h"
+#include "../solutions/a7.h"
 
 #include <vector>
 #include <set>
+
 
 using namespace std;
 
 size_t AmountOfDifferentNumbers(const vector<vector<int>> &matr) {
     set<int> numbers;
-    for (size_t i = 0; i < matr.size(); i++) {
-        for (size_t j = 0; j < matr.size(); j++) {
+    for (size_t i = 0; i < matr.size(); ++i) {
+        for (size_t j = 0; j < matr.size(); ++j) {
             numbers.insert(matr[i][j]);
         }
     }
@@ -20,8 +21,8 @@ size_t AmountOfDifferentNumbers(const vector<vector<int>> &matr) {
 }
 
 bool IsSymmetrical(const vector<vector<int>> &matr) {
-    for (size_t i = 0; i < matr.size(); i++) {
-        for (size_t j = i + 1; j < matr.size(); j++) {
+    for (size_t i = 0; i < matr.size(); ++i) {
+        for (size_t j = i + 1; j < matr.size(); ++j) {
             if (matr[i][j] != matr[j][i]) {
                 return false;
             }

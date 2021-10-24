@@ -1,4 +1,4 @@
-#pragma once
+#define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
 #include "util.h"
@@ -40,4 +40,12 @@ TEST_CASE("c1: Many comparisons to standard sort", "[task:c1]") {
         MergeSort(v);
         REQUIRE(v == expected);
     }
+}
+
+TEST_CASE("c1: Sort already sorted", "[task:c1]") {
+    vector<int> v(10000);
+    iota(v.begin(), v.end(), 0);
+    auto expected = v;
+    MergeSort(v);
+    REQUIRE(v == expected);
 }

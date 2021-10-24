@@ -1,10 +1,12 @@
-#pragma once
+#define CATCH_CONFIG_MAIN
+
 
 #include "catch.hpp"
 #include "util.h"
 #include "../solutions/a5.h"
 
 #include <vector>
+
 
 TEST_CASE("a5: Example", "[task:a5]") {
     vector<vector<int>> matr;

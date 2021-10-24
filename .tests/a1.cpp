@@ -1,10 +1,11 @@
-#pragma once
+#define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
 #include "util.h"
 #include "../solutions/a1.h"
 
 #include <vector>
+
 
 using namespace std;
 

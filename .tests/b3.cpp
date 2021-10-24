@@ -1,11 +1,11 @@
-#pragma once
+#define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
 #include "util.h"
+
 #include "../solutions/b3.h"
 
-#include <string>
-
+using namespace std;
 
 TEST_CASE("b3: Example", "[task:b3]") {
     int64_t number;

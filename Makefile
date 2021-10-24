@@ -1,11 +1,8 @@
 build:
-	g++ -std=c++17 run_tests.cpp
-
-a.out: run_tests.cpp
-	build
+	g++ -std=c++17 .tests/"$(name)".cpp -o "$(name)".out
 
 test:
-	./a.out -d yes "$(name)"
+	./"$(name)".out -d yes "[task:$(name)]"
 
 clear:
-	rm a.out
+	rm [a-z][0-9].out

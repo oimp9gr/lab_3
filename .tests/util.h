@@ -1,6 +1,10 @@
-#include <vector>
-
 #pragma once
+
+#include <vector>
+#include <string>
+#include <numeric>
+
+using namespace std;
 
 void ResizeMatrix(vector<vector<int>> &matrix, size_t row_new_size, size_t column_new_size = -1) {
     if (column_new_size == static_cast<size_t>(-1)) {

@@ -1,4 +1,4 @@
-#pragma once
+#define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
 #include "util.h"
@@ -124,4 +124,9 @@ TEST_CASE("a4: Randomly generated string", "[task:a4]") {
         prefix = word.substr(0, word.length() / 2) + "?";
         REQUIRE(IsPrefix(word, prefix) == false);
     }
+}
+
+TEST_CASE("a4: Const word and prefix", "[task:a4]") {
+    const string word = "automobile", prefix = "auto";
+    REQUIRE(IsPrefix(word, prefix) == true);
 }

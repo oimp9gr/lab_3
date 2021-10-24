@@ -1,4 +1,4 @@
-#pragma once
+#define CATCH_CONFIG_MAIN
 
 #include "catch.hpp"
 #include "util.h"
@@ -93,4 +93,10 @@ TEST_CASE("a3: Point inside rectangle evaluates to true", "[task:a3]") {
         rectangle = {3, 4};
         REQUIRE(isInRectangle(point, rectangle) == true);
     }
+}
+
+TEST_CASE("a3: Const point and rectangle", "[task:a3]") {
+    const Point point{1, 1};
+    const Rectangle rectangle{3, 3};
+    REQUIRE(isInRectangle(point, rectangle) == true);
 }
