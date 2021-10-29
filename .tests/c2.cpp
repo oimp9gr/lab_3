@@ -15,7 +15,7 @@ TEST_CASE("c2: Example", "[task:c2]") {
     REQUIRE(stats.median == 3.5);
     REQUIRE(stats.mode == -4);
     REQUIRE(stats.range == 19);
-    REQUIRE(stats.mean == 4.125);
+    REQUIRE(stats.mean == Approx(4.125).margin(0.0001));
 }
 
 TEST_CASE("c2: Big test", "[task:c2]") {
@@ -71,5 +71,5 @@ TEST_CASE("c2: Big test", "[task:c2]") {
     REQUIRE(stats.median == 497);
     REQUIRE(stats.mode == 81);
     REQUIRE(stats.range == 999);
-    REQUIRE(stats.mean == 499.495);
+    REQUIRE(stats.mean == Approx(499.495).margin(0.0001));
 }
